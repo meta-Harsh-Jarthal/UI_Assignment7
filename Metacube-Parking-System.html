@@ -1,0 +1,238 @@
+<head>
+    <title>METACUBE PARKING</title>
+    <!--Included CSS file for styling -->
+    <link rel="stylesheet" href="styling.css">
+
+</head>
+
+<body>
+    <!-- Top navigation bar for excessing different sections-->
+    <nav id="topnav">
+        <a href="#employee-section" class="nav-item " title="ADD EMPLOYEE">EMPLOYEE</a>
+        <a href="#vehicle-section" class="nav-item " title="ADD VEHICLE">VEHICLE</a>
+        <a href="#feedback-section" class="nav-item" title="GIVE FEEDBACK">FEEDBACK</a>
+        <a href="#pricing-section" class="nav-item" title="BILL DETAILS">PRICING</a>
+        <a href="#newpass-section" class="nav-item" title="NEW PASS" onclick="newPass()">NEW PASS</a>
+    </nav>
+
+    <img src="Parking_1280x989px.jpg" alt="PARKING LOT IMAGE" width="1366px" id="parking-image">
+    <!--Employee Section-->
+    <button type="button" class="collapse" id="employee-section">Employee Details</button>
+    <form action="" method="POST" id="employee">
+        <!--Employee details form-->
+        <div class="employee-form-header">
+            <h2 id="employee-header">Employee Details</h2>
+        </div>
+        <div class="employee-form-details">
+            <div class="employee-form-control">
+                <label for="name" class="employee-input">Full Name :</label>
+                <input type="text" class="input-text" name="employeename" placeholder="Enter Full Name" />
+            </div>
+            <div class="employee-form-control">
+                <label for="gender" class="employee-input">Gender : </label>
+                <input type="radio" name="gender" value="MALE" />
+                <label>Male</label>
+                <input type="radio" name="gender" value="FEMALE" />
+                <label>Female</label>
+            </div>
+            <div class="employee-form-control">
+                <label class="employee-input">Email Id :</label>
+                <input type="email" class="input-text" name="email" placeholder="Enter Email Id" />
+            </div>
+            <div class="employee-form-control">
+                <label class="employee-input">Password : </label>
+                <input type="password" id="msg" class="input-text" name="password" onkeyup="strength(this.value)"
+                    placeholder="Enter Password" />
+                <small id="password-strength"></small>
+            </div>
+            <div class="employee-form-control">
+                <label class="employee-input">Confirm Password :</label>
+                <input type="password" class="input-text" name="confirmPassword" placeholder="Confirm Password" />
+            </div>
+            <div class="employee-form-control">
+                <label class="employee-input">Contact Number : </label>
+                <input type="tel" class="input-text" name="contact" placeholder="Enter Phone Number" />
+            </div>
+            <div class="employee-next-button">
+                <button type="button" id="employee-next-btn">NEXT</button>
+            </div>
+            <div class="employee-submit-btn">
+                <input type="submit" id="employee-submit-name"></input>
+            </div>
+            <div class="employee-submit-btn">
+                <input type="submit" id="employee-submit-gender"></input>
+            </div>
+            <div class="employee-submit-btn">
+                <input type="submit" id="employee-submit-email"></input>
+            </div>
+            <div class="employee-submit-btn">
+                <input type="submit" id="employee-submit-password"></input>
+            </div>
+            <div class="employee-submit-btn">
+                <input type="submit" id="employee-submit-confirm"></input>
+            </div>
+            <div class="employee-submit-btn">
+                <input type="submit" id="employee-submit-contact"></input>
+            </div>
+        </div>
+    </form>
+    <!--Vehicle Section-->
+    <button type="button" class="collapse" id="vehicle-section">Vehicle Details</button>
+    <form action="" method="POST" id="vehicles">
+        <!--Vehicle details form-->
+        <div class="vehicle-form-header">
+            <h2 id="vehicle-header">Vehicle Details</h2>
+        </div>
+        <div class="vehicle-form-details">
+            <div class="vehicle-form-control">
+                <label>Vehicle Make : </label>
+                <input type="text" class="input-text" name="vehicleMake" placeholder="Enter Vehicle Company" />
+            </div>
+            <div class="vehicle-form-control">
+                <label>Vehicle Model : </label>
+                <input type="text" class="input-text" name="vehicleModel" placeholder="Enter Vehicle Model" />
+            </div>
+
+            <div class="vehicle-form-control">
+                <label>Type : </label>
+                <select name="VehicleType" id="type">
+                    <option value="cycle">Cycle</option>
+                    <option value="motorCycle">MotorCycle</option>
+                    <option value="fourWheeler">Four Wheeler</option>
+                </select>
+            </div>
+            <div class="vehicle-form-control">
+                <label>Vehicle Number : </label>
+                <input type="text" class="input-text" name="vehicleNumber" placeholder="Enter Vehicle Number" />
+            </div>
+
+            <div class="vehicle-form-control">
+                <label>Employee Id : </label>
+                <input type="text" class="input-text" name="employeeId" placeholder="Enter Employee Id" />
+            </div>
+
+            <!--Vehicle identification form-->
+            <div class="vehicle-form-sub-heading">
+                <h3>Identification Details</h3>
+            </div>
+            <div class="vehicle-form-control">
+                <textarea name="identification" class="message-text" cols="30" rows="10"
+                    placeholder="Identification details"></textarea>
+            </div>
+
+            <div class="vehicle-next-button">
+                <button type="button" id="vehicle-next-btn">NEXT</button>
+            </div>
+            <div class="vehicle-submit-btn">
+                <input type="submit" id="vehicle-submit-vehicleMake"></input>
+            </div>
+            <div class="vehicle-submit-btn">
+                <input type="submit" id="vehicle-submit-vehicleModel"></input>
+            </div>
+            <div class="vehicle-submit-btn">
+                <input type="submit" id="vehicle-submit-VehicleType"></input>
+            </div>
+            <div class="vehicle-submit-btn">
+                <input type="submit" id="vehicle-submit-vehicleNumber"></input>
+            </div>
+            <div class="vehicle-submit-btn">
+                <input type="submit" id="vehicle-submit-employeeId"></input>
+            </div>
+            <div class="vehicle-submit-btn">
+                <input type="submit" id="vehicle-submit-identification"></input>
+            </div>
+        </div>
+    </form>
+    <!--Feedback Section-->
+    <button type="button" class="collapse" id="feedback-section">Feedback</button>
+    <section id="feedback">
+        <div class="form-image">
+            <img src="em.png" alt="EMAIL LOGO" class="feedback-image">
+        </div>
+        <div class="feedback-block">
+            <div class="form-header">
+                <h2>Get In Touch</h2>
+            </div>
+            <div class="form-control">
+                <input type="text" class="feedback-text" id="feedbackName" placeholder="Full Name" />
+            </div>
+            <div class="form-control">
+                <input type="email" class="feedback-text" id="feedbackEmail" placeholder="Email Id" />
+            </div>
+
+            <div class="form-control">
+                <input type="text" class="feedback-text" id="subject" placeholder="Subject" />
+            </div>
+
+            <div class="form-control">
+                <textarea name="message" class="message-text" cols="30" rows="10" placeholder="Message"></textarea>
+            </div>
+
+            <div class="form-control">
+                <button type="button" class="send-button">Send Email &#x25B6</button>
+            </div>
+        </div>
+    </section>
+
+    <!--pricing Section-->
+    <button type="button" class="collapse" id="pricing-section">Pricing Details</button>
+    <section id="pricing">
+        <h2 class="pricing-header">Pricing Details</h2>
+        <br><br>
+        <!--Pricing details for CYCLE-->
+        <div class="price-details">
+            <h3 class="center">CYCLE</h3>
+            <div class="charges">
+                <div class="charges-boldtext">&#8377 100</div>
+                <div class="charges-text">&#47 Month</div>
+            </div>
+            <br>
+            <span class="split-charges" id="0">5 &#8377 Daily </span>
+            <br>
+            <span class="split-charges" id="1">100 &#8377 Monthly </span>
+            <br>
+            <span class="split-charges" id="2">500 &#8377 Yearly</span>
+            <br>
+            <button type="button" class="purchase-button" onclick="yourPlan(this,0)">PURACHASE NOW</button>
+        </div>
+        <!--Pricing details for MOTORCYCLE-->
+        <div class="price-details">
+            <h3 class="center">MOTORCYCLE</h3>
+            <div class="charges">
+                <div class="charges-boldtext">&#8377 200</div>
+                <div class="charges-text">&#47 Month</div>
+            </div>
+            <br>
+            <span class="split-charges" id="3">10 &#8377 Daily </span>
+            <br>
+            <span class="split-charges" id="4">200 &#8377 Monthly </span>
+            <br>
+            <span class="split-charges" id="5"> 1000 &#8377 Yearly</span>
+            <br>
+            <button type="button" class="purchase-button" onclick="yourPlan(this,1)">PURACHASE NOW</button>
+        </div>
+        <!--Pricing details for FOURWHEELER-->
+        <div class="price-details">
+            <h3 class="center">FOURWHEELER</h3>
+            <div class="charges">
+                <div class="charges-boldtext">&#8377 500</div>
+                <div class="charges-text">&#47 Month</div>
+            </div>
+            <br>
+            <span class="split-charges" id="6">20 &#8377 Daily </span>
+            <br>
+            <span class="split-charges" id="7">500 &#8377 Monthly </span>
+            <br>
+            <span class="split-charges" id="8"> 3500 &#8377 Yearly</span>
+            <br>
+            <button type="button" class="purchase-button" onclick="yourPlan(this,2)">PURCHASE NOW</button>
+        </div>
+        <div>
+            <button type="button" id="pass-button" onclick="showPlan(this)">GET PASS</button>
+        </div>
+    </section>
+
+    <script src="Collapsible.js"></script>
+    <script src="details.js"></script>
+    <script src="pricing.js"></script>
+</body>
